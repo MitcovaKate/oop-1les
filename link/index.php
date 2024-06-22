@@ -3,17 +3,37 @@ class Link {
   private $text;
   private $url;
   public function __construct ($text, $url) {
-      $this->setText($text);
-      $this->url=$url;               
+      $this->__set("text", $text) ;
+      $this->__set("url", $url);               
   }
-public function getText(){
-    return $this->text;
+
+public function __set($name, $value){
+   if($name == "text")
+   if ($value != "")
+   $this->text=$value;
+else 
+     die ("ERROR:cannot leave {$name} empty!!!");
+    else if ($name == "url")
+    if($value != "")
+    $this->url = $value;
+else  die("ERROR:cannot leave {$name} empty!!!");
+else 
+ die   ("ERROR:unknown property {$name}");
 }
-  
-public function setText($text){
-    $text = trim($text); // no spaces hw1
-if ($text == "") die ("ERROR:text is mandatory!");
-$this->text = $text;
+
+public function __get($name){
+   if($name == "text") return $this->text;
+   else if ($name == "url") return $this->url;
+   else if ("ERROR:unknown property {$name}");
+}
+public function __toString(){
+    return "<a href='{$this->url}'>{$this->text}</a>";
+}
+
+public function __isset($property) {
+    if ($property !== "") {
+      return isset($this->$property) && $this->$property !== "";
+    }
 }
 }
 ?>
@@ -21,7 +41,9 @@ $this->text = $text;
 <?
                  
 $link1 = new Link("PHP is the best!", "http://php.net");
-$link1->setText("");
-print($link1->getText());
+
+//  print ($link1->text="");
+// print ($link1->url);
 
 ?>
+<p><?= isset($link1) ? "Читайте {$link1} и радуйтесь!" : "" ?></p>
