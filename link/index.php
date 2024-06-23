@@ -31,9 +31,7 @@ public function __toString(){
 }
 
 public function __isset($property) {
-    if ($property !== "") {
-      return isset($this->$property) && $this->$property !== "";
-    }
+  return isset($this->data[$property]);
 }
 }
 ?>
@@ -42,8 +40,8 @@ public function __isset($property) {
                  
 $link1 = new Link("PHP is the best!", "http://php.net");
 
-//  print ($link1->text="");
+ print ($link1->text="");
 // print ($link1->url);
-
+var_dump(isset($link->text));
 ?>
 <p><?= isset($link1) ? "Читайте {$link1} и радуйтесь!" : "" ?></p>
