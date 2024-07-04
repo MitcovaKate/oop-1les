@@ -3,16 +3,23 @@ class Applience {
 private int $id;
 private string $name;
 private float $price;
-
+const ID_MIN=0;
+const ID_MAX=1000000;
 public function __construct(int $id,string $name,float $price)
 {
-  $this->id=$id;
+  $this->setId($id);
   $this->name=$name;
   $this->price=$price;  
 }
- public function setId(int $id):void{
-    if($id>0 && $id<1000000){
-     $this->id=$id;
+ public function setId(int $id) : void {
+    if($id > static::ID_MIN && $id < static::ID_MAX){
+       $this->id=$id;
+    }
+    else {
+     # hw2 sprintf()
+//      $errorMessage = sprintf("ERROR: id must be in range (%d..%d)", static::ID_MIN, static::ID_MAX);
+// print($errorMessage);
+      print("ERROR:id must be in range (".static::ID_MIN."..".static::ID_MAX.")");
     }
 }
  public function getId():int{
