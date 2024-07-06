@@ -1,11 +1,11 @@
 <?
-class Applience {
+abstract class Applience {
 private int $id;
 private string $name;
-private float $price;
+private Money $price;
 const ID_MIN=0;
 const ID_MAX=1000000;
-public function __construct(int $id,string $name,float $price)
+public function __construct(int $id,string $name,Money $price)
 {
   $this->setId($id);
   $this->name=$name;
