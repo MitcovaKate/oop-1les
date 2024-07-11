@@ -1,4 +1,6 @@
 <?
+require_once './src/Money.php';
+
 abstract class Applience {
 private int $id;
 private string $name;
