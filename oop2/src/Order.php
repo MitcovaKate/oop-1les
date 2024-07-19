@@ -13,9 +13,9 @@ class Order{
         $this->adjustTotal($item->getApplience()->getPrice(),$item->getQuantity());
     }
     private function adjustTotal(Money $price, int $quantity):void{
-$this->total = new Money(
+    $this->total = new Money(
     $this->total->getAmount() + $price->getAmount() * $quantity,
-$price->getCurrency()
+    $price->getCurrency()
 );
     }
 }
