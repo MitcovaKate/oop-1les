@@ -45,4 +45,10 @@ public function __construct(int $id,string $name,Money $price)
 
 
 //  }
+public function getPrice() : Money{
+return $this->price;
+}
+public function setPrice(Money $price):void{
+  $this->price=$price;
+}
 }

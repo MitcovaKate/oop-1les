@@ -6,6 +6,7 @@ require_once './src/TV.php';
 require_once './src/Money.php';
 require_once './src/Lenght.php';
 require_once './src/Volume.php';
+require_once './src/Order.php';
 
 $tv = new TV(1,'LG',
 new \Lenght\Lenght(75,\Lenght\Units::INCH),
@@ -18,4 +19,7 @@ $washer=new DishWasher(
     new Money(12000,'MDL')
 );
 var_dump($washer);
+$order=new Order();
+$order->addItem(new Item($tv,1));
+var_dump($order);
 ?>
